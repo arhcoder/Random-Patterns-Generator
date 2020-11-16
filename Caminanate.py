@@ -18,38 +18,36 @@ class Caminante:
 class Caminante_Borracho(Caminante):
 
     def movimiento_xy(self):
-        avance_xy = [0, 0]
-
-        # Controlador sirve porque sólo un se va a mover en un eje (En x o en y)
-        controlador = random.choice([0, 1])
-        avance_xy[controlador] = 0
-        
-        if controlador == 0:
-            avance_xy[1] == random.choice([-1, 1])
-        else:
-            avance_xy[0] == random.choice([-1, 1])
-
-        return avance_xy     
+        avance_xy = []
+        avance_xy.append(random.choice([0, -1, 1]))
+        avance_xy.append(random.choice([0, -1, 1]))
+        return avance_xy
             
 
 # Camina sólo en cruz #
 class Caminante_Cuadrado(Caminante):
 
-    def movimiento_x(self):
-        avance_x = random.choice([0, -1, 1])
-        return avance_x
+    def movimiento_xy(self):
+        avance_xy = []
 
-    def movimiento_y(self):
-        avance_y = random.choice([0, -1, 1])
-        return avance_y
+        # Controlador sirve porque sólo un se va a mover en un eje (En x o en y) #
+        # Se elige la coordenada que no va a cambiar (x o y):
+        controlador = random.choice([0, 1])
+        
+        if controlador == 0:
+            avance_xy.append(0)
+            avance_xy.append(random.choice([-1, 1]))
+        else:
+            avance_xy.append(random.choice([-1, 1]))
+            avance_xy.append(0)
+        return avance_xy
+
 
 # Camina en diagonal #
 class Caminante_Diagonal(Caminante):
 
-    def movimiento_x(self):
-        avance_x = random.choice([-1, 1])
-        return avance_x
-
-    def movimiento_y(self):
-        avance_y = random.choice([-1, 1])
-        return avance_y
+    def movimiento_xy(self):
+        avance_xy = []
+        avance_xy.append(random.choice([-1, 1]))
+        avance_xy.append(random.choice([-1, 1]))
+        return avance_xy
