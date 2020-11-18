@@ -7,13 +7,9 @@ class Chess_Piece:
         self.x = x
         self.y = y
 
-    def dibujar(self, x, y, avance_x, avance_y):
-        x = self.x
-        y = self.y
-        x += avance_x
-        y += avance_y
-        self.x = avance_x
-        self.y = avance_y
+    def mover(self, x, y, nueva_x, nueva_y):
+        self.x = nueva_x
+        self.y = nueva_y
     
 
 # Diuja sólo en cruz | Como una torre en ajedrez #
